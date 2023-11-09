@@ -21,19 +21,19 @@ from src.helper import github_request
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/',methods=["GET"])
 def index():
-  pass#todo
+  return {}
 
 
-@app.route('/release')
+@app.route('/release',methods=["GET"])
 def release():
-  pass#todo
+  return github_request('https://api.github.com/repos/dattt01/toya03bainopmauflaskapiapp/releases')
 
 
-@app.route('/most_3_recent/release')
+@app.route('/most_3_recent/release',methods=["GET"])
 def most_3_recent__release():
-  pass#todo
+  return github_request('https://api.github.com/repos/dattt01/toya03bainopmauflaskapiapp/releases?per_page=3')
 
 
 if __name__=='__main__':
